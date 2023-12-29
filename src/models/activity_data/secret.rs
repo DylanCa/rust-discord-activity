@@ -9,18 +9,19 @@ pub struct Secret {
     spectate: Option<String>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    instanced_match: Option<String>
+    instanced_match: Option<String>,
 }
 
 impl Secret {
-    pub fn new(join: Option<String>,
-               spectate: Option<String>,
-               instanced_match: Option<String>) -> Secret {
+    pub fn new(
+        join: Option<String>,
+        spectate: Option<String>,
+        instanced_match: Option<String>,
+    ) -> Secret {
         Self {
             join,
             spectate,
-            instanced_match
+            instanced_match,
         }
     }
-
 }
