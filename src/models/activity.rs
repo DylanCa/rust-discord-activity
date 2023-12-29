@@ -1,12 +1,8 @@
+use crate::models::activity_data::{
+    activity_flag::ActivityFlag, activity_type::ActivityType, asset::Asset, button::Button,
+    emoji::Emoji, party::Party, secret::Secret, timestamp::Timestamp,
+};
 use serde::Serialize;
-use crate::models::activity_data::{activity_type::ActivityType,
-                    activity_flag::ActivityFlag,
-                    asset::Asset,
-                    button::Button,
-                    emoji::Emoji,
-                    party::Party,
-                    secret::Secret,
-                    timestamp::Timestamp, };
 
 /// Test Doc
 #[derive(Serialize, Debug)]

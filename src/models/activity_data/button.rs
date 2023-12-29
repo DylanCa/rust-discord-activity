@@ -8,9 +8,6 @@ pub struct Button {
 
 impl Button {
     pub fn new(label: String, url: String) -> Button {
-        Self {
-            label,
-            url
-        }
+        Self { label, url }
     }
 }

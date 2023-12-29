@@ -10,11 +10,7 @@ pub struct Timestamp {
 }
 
 impl Timestamp {
-    pub fn new(start: Option<u128>,
-               end: Option<u128>) -> Timestamp {
-        Self {
-            start,
-            end,
-        }
+    pub fn new(start: Option<u128>, end: Option<u128>) -> Timestamp {
+        Self { start, end }
     }
 }
