@@ -1,5 +1,5 @@
 pub enum Commands {
-    SetActivity
+    SetActivity,
 }
 
 impl Commands {

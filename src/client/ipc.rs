@@ -1,15 +1,13 @@
-use std::os::unix::net::UnixStream;
-use std::env::var;
-use std::error::Error;
-use std::io::{Read, Write};
-use std::path::PathBuf;
 use byteorder::{LittleEndian, ReadBytesExt, WriteBytesExt};
 use log::debug;
 use serde_json::{json, Value};
+use std::env::var;
+use std::error::Error;
+use std::io::{Read, Write};
+use std::os::unix::net::UnixStream;
+use std::path::PathBuf;
 
-use crate::models::client::{payload::Payload,
-                            payload::OpCode,
-                            commands::Commands};
+use crate::models::client::{commands::Commands, payload::OpCode, payload::Payload};
 
 pub struct DiscordClient {
     pub id: String,
@@ -23,7 +21,9 @@ impl DiscordClient {
             socket: None,
         };
 
-        client.connect().expect("Could not connect to client. Is Discord running ?");
+        client
+            .connect()
+            .expect("Could not connect to client. Is Discord running ?");
         client
     }
 

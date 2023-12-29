@@ -16,16 +16,17 @@ pub struct Asset {
 }
 
 impl Asset {
-    pub fn new(large_image: Option<String>,
-            large_text: Option<String>,
-            small_image: Option<String>,
-            small_text: Option<String>,
+    pub fn new(
+        large_image: Option<String>,
+        large_text: Option<String>,
+        small_image: Option<String>,
+        small_text: Option<String>,
     ) -> Asset {
         Self {
             large_image,
             large_text,
             small_image,
-            small_text
+            small_text,
         }
     }
 }

@@ -5,13 +5,12 @@ use crate::models::activity::Activity;
 #[derive(Serialize, Debug)]
 #[serde(untagged)]
 pub enum EventData {
-    Activity(Activity)
+    Activity(Activity),
 }
 
 pub enum EventName {
-    Activity
+    Activity,
 }
-
 
 impl EventName {
     pub fn as_string(&self) -> String {
