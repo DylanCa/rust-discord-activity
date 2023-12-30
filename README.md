@@ -2,7 +2,7 @@
 _A lightweight Rust library to control Discord Rich Presence_
 
 ## Installation
-Rust Discord Activity is available directly on https://crates.io/crates/rust-discord-activity:
+Rust Discord Activity is available directly on [crates.io](https://crates.io/crates/rust-discord-activity):
 `cargo add rust-discord-activity`
 
 ## How to use
