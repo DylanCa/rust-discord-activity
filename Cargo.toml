@@ -1,7 +1,13 @@
 [package]
 name = "rust-discord-activity"
+description = "A lightweight library to control Discord Rich Presence"
 version = "0.1.0"
 edition = "2021"
+authors = ["DylanCa <dylan.cattelan@gmail.com"]
+license = "MIT"
+keywords = ["discord", "activity", "rich", "presence"]
+repository = "https://github.com/DylanCa/Rust-Discord-Activity"
+homepage = "https://github.com/DylanCa/Rust-Discord-Activity"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
