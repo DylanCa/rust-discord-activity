@@ -50,6 +50,5 @@ And voilà! This sets-up a new Activity for the current Discord user:
 <img alt="Discord Rich Presence" src="https://imgur.com/gf9pOen.png" width="300"/>
 
 ## Next Steps
-- Write the documentation for this library
+- Write proper documentation for this library
 - Write unit tests
-- Push the library on crates.io
