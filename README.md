@@ -1,7 +1,11 @@
 # Rust Discord Activity
-_A lightweight library developed in Rust to control Discord Rich Presence_
+_A lightweight Rust library to control Discord Rich Presence_
 
-## How-to
+## Installation
+Rust Discord Activity is available directly on https://crates.io/crates/rust-discord-activity:
+`cargo add rust-discord-activity`
+
+## How to use
 Three steps:
 1. Create your Activity and set desired data using provided structs 
 2. Create a new Payload with your Activity
@@ -11,8 +15,6 @@ Et voilà !
 
 ## Example
 ```rust
-let mut activity = Activity::new();
-
 let limg = Some(String::from("https://placehold.co/600x400/png"));
 let simg = Some(String::from("https://placehold.co/600x400/png"));
 let asset = Asset::new(limg, None, simg, None);
@@ -24,15 +26,17 @@ let mut button_vec = vec![];
 button_vec.push(Button::new("First Button".into(), "https://google.com".into()));
 button_vec.push(Button::new("Second Button".into(), "https://yahoo.com".into()));
 
+let mut activity = Activity::new();
+
 activity
-.set_state(Some("This is State".into()))
-.set_activity_type(Some(ActivityType::LISTENING))
-.set_details(Some("This is Details".parse().unwrap()))
-.set_timestamps(Some(timestamp))
-.set_assets(Some(asset))
-.set_party(Some(party))
-.set_instance(Some(true))
-.set_buttons(Some(button_vec));
+    .set_state(Some("This is State".into()))
+    .set_activity_type(Some(ActivityType::LISTENING))
+    .set_details(Some("This is Details".parse().unwrap()))
+    .set_timestamps(Some(timestamp))
+    .set_assets(Some(asset))
+    .set_party(Some(party))
+    .set_instance(Some(true))
+    .set_buttons(Some(button_vec));
 
 let payload = Payload::new(EventName::Activity, EventData::Activity(activity));
 
@@ -42,7 +46,8 @@ let _ = client.send_payload(payload);
 ```
 
 And voilà! This sets-up a new Activity for the current Discord user:
-![Discord Rich Presence](https://imgur.com/gf9pOen.png)
+
+<img alt="Discord Rich Presence" src="https://imgur.com/gf9pOen.png" width="300"/>
 
 ## Next Steps
 - Write the documentation for this library
