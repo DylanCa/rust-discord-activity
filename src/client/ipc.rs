@@ -15,6 +15,11 @@ use crate::models::error::Error::DiscordNotFound;
 pub struct DiscordClient {
     /// ID of Discord Application, see <https://discord.com/developers> for more info
     pub id: String,
+
+    /// Boolean stating if Client is connected to Discord App.
+    pub is_connected: bool,
+
+    /// Unix Stream socket of Client Connection.
     socket: Option<UnixStream>,
 }
 
@@ -23,6 +28,7 @@ impl DiscordClient {
     pub fn new(id: &str) -> Self {
         Self {
             id: id.to_string(),
+            is_connected: false,
             socket: None,
         }
     }
@@ -35,9 +41,13 @@ impl DiscordClient {
             Ok(socket) => {
                 self.socket = Some(socket);
                 self.handshake().expect("Could not handshake.");
+                self.is_connected = true;
                 Ok(())
             }
-            Err(_) => Err(DiscordNotFound),
+            Err(_) => {
+                self.is_connected = false;
+                Err(DiscordNotFound)
+            }
         }
     }
 
