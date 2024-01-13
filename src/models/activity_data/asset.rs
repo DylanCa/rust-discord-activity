@@ -1,5 +1,6 @@
 use serde::Serialize;
 
+/// Contains Large and Small images of an Activity.
 #[derive(Serialize, Debug)]
 pub struct Asset {
     #[serde(skip_serializing_if = "Option::is_none")]

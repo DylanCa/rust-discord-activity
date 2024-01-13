@@ -1,5 +1,6 @@
 use serde::Serialize;
 
+/// Simple structure containing a label and an URL to form a Discord Activity button.
 #[derive(Serialize, Debug)]
 pub struct Button {
     label: String,

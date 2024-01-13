@@ -6,17 +6,19 @@ Rust Discord Activity is available directly on [crates.io](https://crates.io/cra
 `cargo add rust-discord-activity`
 
 ## How to use
-Three steps:
-1. Create your Activity and set desired data using provided structs 
-2. Create a new Payload with your Activity
-3. Instantiate a new DiscordClient and send your Payload through it
+1. Instantiate a new DiscordClient
+2. Create your Activity and set desired data using provided structs 
+3. Create a new Payload with your Activity 
+4. Send your Payload through the DiscordClient
 
 Et voilà !
 
 ## Example
 ```rust
+let mut client = DiscordClient::new("<application_id>");
+
 let limg = Some(String::from("https://placehold.co/600x400/png"));
-let simg = Some(String::from("https://placehold.co/600x400/png"));
+let simg = Some(String::from("https://placehold.co/200x100/png"));
 let asset = Asset::new(limg, None, simg, None);
 let now_in_millis = SystemTime::now().duration_since(UNIX_EPOCH).unwrap().as_millis();
 let timestamp = Timestamp::new(Some(now_in_millis - 10000), None);
@@ -40,7 +42,6 @@ activity
 
 let payload = Payload::new(EventName::Activity, EventData::Activity(activity));
 
-let mut client = DiscordClient::new("<application_id>");
 let _ = client.send_payload(payload);
 
 ```
@@ -48,6 +49,9 @@ let _ = client.send_payload(payload);
 And voilà! This sets-up a new Activity for the current Discord user:
 
 <img alt="Discord Rich Presence" src="https://imgur.com/gf9pOen.png" width="300"/>
+
+## Limitations
+For the moment, the library only works with MacOS and local Discord application.
 
 ## Next Steps
 - Write proper documentation for this library
