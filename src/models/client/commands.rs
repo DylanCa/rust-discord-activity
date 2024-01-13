@@ -1,3 +1,5 @@
+/// List of Commands to send through IPC to Discord Client.
+/// Currently only supports SET_ACTIVITY.
 pub enum Commands {
     SetActivity,
 }
