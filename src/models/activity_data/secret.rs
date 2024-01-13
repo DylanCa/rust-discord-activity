@@ -1,5 +1,6 @@
 use serde::Serialize;
 
+/// Contains Secrets URIs to join, spectate or instantiate a match through Discord Chat.
 #[derive(Serialize, Debug)]
 pub struct Secret {
     #[serde(skip_serializing_if = "Option::is_none")]

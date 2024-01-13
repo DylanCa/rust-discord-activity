@@ -1,5 +1,6 @@
 use serde::Serialize;
 
+/// Contains data of an Emoji. ID must be a Discord Emoji ID.
 #[derive(Serialize, Debug)]
 pub struct Emoji {
     name: String,

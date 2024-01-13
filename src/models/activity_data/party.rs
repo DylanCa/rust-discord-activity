@@ -1,5 +1,6 @@
 use serde::Serialize;
 
+/// Contains data of a Party.
 #[derive(Serialize, Debug)]
 pub struct Party {
     #[serde(skip_serializing_if = "Option::is_none")]
