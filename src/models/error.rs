@@ -10,7 +10,9 @@ pub enum Error {
 impl Display for Error {
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
         let msg = match self {
-            Error::DiscordNotFound => Cow::Borrowed("Could not connect to client. Is Discord running ?"),
+            Error::DiscordNotFound => {
+                Cow::Borrowed("Could not connect to client. Is Discord running ?")
+            }
         };
 
         f.write_str(&msg)
