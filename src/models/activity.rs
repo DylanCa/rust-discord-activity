@@ -5,7 +5,7 @@ use crate::models::activity_data::{
 use serde::Serialize;
 
 /// Represents a Discord Activity object to be send to Discord application.
-/// See https://discord.com/developers/docs/game-sdk/activities#data-models for more information.
+/// See <https://discord.com/developers/docs/game-sdk/activities#data-models> for more information.
 #[derive(Serialize, Debug)]
 pub struct Activity {
     /// Name of the Discord Application - Read Only.

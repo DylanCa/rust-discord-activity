@@ -13,7 +13,7 @@ use crate::models::error::Error::DiscordNotFound;
 
 /// Client used to communicate with Discord through IPC.
 pub struct DiscordClient {
-    /// ID of Discord Application, see https://discord.com/developers for more info
+    /// ID of Discord Application, see <https://discord.com/developers> for more info
     pub id: String,
     socket: Option<UnixStream>,
 }
