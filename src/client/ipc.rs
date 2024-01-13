@@ -8,23 +8,37 @@ use std::os::unix::net::UnixStream;
 use std::path::PathBuf;
 
 use crate::models::client::{commands::Commands, payload::OpCode, payload::Payload};
+use crate::models::error::Error as ErrorMsg;
+use crate::models::error::Error::DiscordNotFound;
 
+/// Client used to communicate with Discord through IPC.
 pub struct DiscordClient {
+    /// ID of Discord Application, see https://discord.com/developers for more info
     pub id: String,
     socket: Option<UnixStream>,
 }
 
 impl DiscordClient {
+    /// Used to instantiate a new Discord Client.
     pub fn new(id: &str) -> Self {
-        let mut client = Self {
+        Self {
             id: id.to_string(),
             socket: None,
-        };
+        }
+    }
 
-        client
-            .connect()
-            .expect("Could not connect to client. Is Discord running ?");
-        client
+    /// Tries to enable a connection to the Discord Application.
+    pub fn connect(&mut self) -> Result<(), ErrorMsg> {
+        let path = self.fetch_process_pathbuf().join("discord-ipc-0");
+
+        match UnixStream::connect(&path) {
+            Ok(socket) => {
+                self.socket = Some(socket);
+                self.handshake().expect("Could not handshake.");
+                Ok(())
+            }
+            Err(_) => Err(DiscordNotFound),
+        }
     }
 
     pub fn send_payload(&mut self, payload: Payload) -> Result<(u32, Value), Box<dyn Error>> {
@@ -42,21 +56,6 @@ impl DiscordClient {
 
     fn socket(&mut self) -> &mut UnixStream {
         self.socket.as_mut().unwrap()
-    }
-
-    fn connect(&mut self) -> Result<(), Box<dyn Error>> {
-        let path = self.fetch_process_pathbuf().join("discord-ipc-0");
-
-        match UnixStream::connect(&path) {
-            Ok(socket) => {
-                self.socket = Some(socket);
-
-                self.handshake().expect("Could not handshake.");
-            }
-            Err(_) => panic!("Could not connect to client. Is Discord running ?"),
-        }
-
-        Ok(())
     }
 
     fn fetch_process_pathbuf(&mut self) -> PathBuf {
