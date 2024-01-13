@@ -1,5 +1,6 @@
 use serde::Serialize;
 
+/// List of Activity Flags to send to Discord Client.
 #[derive(Serialize, Debug)]
 pub enum ActivityFlag {
     Instance = 1,
