@@ -1,5 +1,9 @@
 use serde::Serialize;
 
+/// Contains start and end time for an Activity.
+/// Must be in Milliseconds since UNIX_EPOCH time.
+/// If only Start is set and is in the past, it will display "xx:xx elapsed"
+/// Otherwise if End is set, it will display "xx:xx remaining"
 #[derive(Serialize, Debug)]
 pub struct Timestamp {
     #[serde(skip_serializing_if = "Option::is_none")]
