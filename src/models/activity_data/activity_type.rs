@@ -1,5 +1,6 @@
 use serde::Serialize;
 
+/// List of Activity Type - Only Game is supported for the moment.
 #[derive(Serialize, Debug)]
 pub enum ActivityType {
     GAME = 0,
