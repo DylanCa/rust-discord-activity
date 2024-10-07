@@ -17,6 +17,8 @@ Et voilà !
 ```rust
 let mut client = DiscordClient::new("<application_id>");
 
+let _ = client.connect();
+
 let limg = Some(String::from("https://placehold.co/600x400/png"));
 let simg = Some(String::from("https://placehold.co/200x100/png"));
 let asset = Asset::new(limg, None, simg, None);
