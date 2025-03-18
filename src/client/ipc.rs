@@ -4,7 +4,7 @@ use serde_json::{json, Value};
 use std::env::var;
 use std::error::Error;
 use std::io::{Read, Write};
-use std::os::unix::net::UnixStream;
+use uds_windows::UnixStream;
 use std::path::PathBuf;
 
 use crate::models::client::{commands::Commands, payload::OpCode, payload::Payload};
