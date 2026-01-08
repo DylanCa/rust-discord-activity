@@ -21,3 +21,11 @@ log = "0.4.20"
 [dependencies.uuid]
 version = "1.6.1"
 features = ["v4"]
+
+[[example]]
+name = "simple_presence"
+path = "examples/simple_presence.rs"
+
+[[example]]
+name = "pulsar_example"
+path = "examples/pulsar_example.rs"

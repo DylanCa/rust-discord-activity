@@ -3,6 +3,7 @@ use std::fmt;
 use std::fmt::{Display, Formatter};
 
 /// Custom Error list for the library.
+#[derive(Debug)]
 pub enum Error {
     DiscordNotFound,
 }
